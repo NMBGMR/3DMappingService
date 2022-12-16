@@ -38,7 +38,7 @@ async def root(request: Request,
                lon=None,
                easting=None,
                northing=None,
-               depth= None):
+               depth=None):
     formation = None
     if depth:
         if lat and lon:
