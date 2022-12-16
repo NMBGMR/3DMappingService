@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>Item Details</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.2.slim.min.js"
+            integrity="sha256-E3P3OaTZH+HlEM7f1gdAT3lHAn4nWBZXuYe89DFg2d0="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h3>Pecos Slope 3D Model Web Service</h3>
+        </div>
+        <div class="row"></div>
+        <div class="row">
+            <form action="/">
+                <div class="row">
+                    <div id="latlon" class="col-lg-6">
+                    <label for="latname">Latitude</label><br>
+                    <input type="text" id="latname" name="lat" value=""><br>
+                    <label for="lonname">Longitude</label><br>
+                    <input type="text" id="lonname" name="lon" value=""><br><br>
+                </div>
+                    <div id="utm" class="col-lg-6">
+                        <label for="nname">Northing</label><br>
+                        <input type="text" id="nname" name="northing" value="664655"><br>
+                        <label for="ename">Easting</label><br>
+                        <input type="text" id="ename" name="easting" value="3658463"><br><br>
+                    </div>
+                </div>
+
+                <label for="depth">Depth below land surface (ft)</label><br>
+                <input type="text" id="depth" name="depth" value="100"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="row">
+            <H3>Results</H3>
+            <hr/>
+
+            <table class="table">
+                <tr>
+                    <td>Formation</td>
+                    <td>{{formation['name']}}</td>
+                </tr>
+                <tr>
+                    <td>Depth to Surface Top (ft)</td>
+                    <td>{{formation['depth_to_surface_top']}}</td>
+                </tr>
+                <tr>
+                    <td>Depth to Surface Base (ft)</td>
+                    <td>{{formation['depth_to_surface_base']}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <footer>Developed by Jake Ross 2022. Uses data from the Pecos Slope 3D model developed by Marissa Fichera (2021)</footer>
+
+<!--    <script>-->
+<!--        function toggleUTM(){-->
+<!--            console.log($('#toggle_utm').is(":checked"))-->
+<!--            if($('#toggle_utm').is(":checked")){-->
+<!--                $('#utm').css('display', 'block')-->
+<!--                $('#latlon').css('display', 'none')-->
+<!--            }else{-->
+<!--                $('#utm').css('display', 'none')-->
+<!--                $('#latlon').css('display', 'block')-->
+<!--            }-->
+
+<!--        }-->
+<!--    </script>-->
+</body>
+</html>

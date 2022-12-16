@@ -1,3 +1,6 @@
 fastapi
+gunicorn
 uvicorn
 rasterio
+jinja2
+pyproj

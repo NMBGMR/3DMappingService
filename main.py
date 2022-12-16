@@ -13,15 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ===============================================================================
-from typing import Optional
+from wsgi import app
 
-from pydantic import BaseModel
-
-
-class Formation(BaseModel):
-    name: str
-    code: Optional[str]
-    depth_to_surface_top: float
-    depth_to_surface_base: float
-
+if __name__ == '__main__':
+    app.run(debug=True)
 # ============= EOF =============================================
