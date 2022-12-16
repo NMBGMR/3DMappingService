@@ -40,13 +40,19 @@ async def root(request: Request,
                northing=None,
                depth= None):
     formation = None
-    if lat and lon:
-        formation = fm.get_formation(float(lon), float(lat), float(depth))
-    elif easting and northing:
-        formation = fm.get_formation(float(easting), float(northing), float(depth), as_utm=True)
+    if depth:
+        if lat and lon:
+            formation = fm.get_formation(float(lon), float(lat), float(depth))
+        elif easting and northing:
+            formation = fm.get_formation(float(easting), float(northing), float(depth), as_utm=True)
 
     return templates.TemplateResponse("index.html", {'request': request,
-                                                     'formation': formation})
+                                                     'formation': formation,
+                                                     'lat': lat or '',
+                                                     'lon': lon or '',
+                                                     'northing': northing or '',
+                                                     'easting': easting or '',
+                                                     'depth': depth or ''})
 
 
 @app.get("/stratigraphy/{x}/{y}", response_model=List[Formation])
